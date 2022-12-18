@@ -61,6 +61,21 @@ def write_list_to_csv(path_file: str, coding: str, list_to_write: List[List[str]
             for row in list_to_write:       
                 file_writer.writerow(row) 
 
+def add_list_to_csv(path_file: str, coding: str, list_to_write: List[List[str]]):
+    """
+    Записывает список в файл 
+
+    Args:
+    path_file - путь до файла, 
+    coding - кодировка ('utf-8'),
+    list_to_write - список для записи
+    """
+    with open(path_file, 'a', encoding=coding) as w_file:
+            file_writer = csv.writer(w_file, delimiter = "|" , lineterminator="\n")
+            for row in list_to_write:       
+                file_writer.writerow(row) 
+
+
 def string_to_list(string_line: str) -> List[List[str]]:
     """
     Возвращает список строк разденных по '\\n' в виде списка элементов разделенных по пробелу [[1,2,3],[1,2,3],[1,2,3]] 
