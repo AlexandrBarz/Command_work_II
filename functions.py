@@ -20,7 +20,7 @@ def give_int_num(input_string: str,
                 print(f'Введите больше {min_num}')
                 continue
             if max_num and num > max_num:
-                print(f'Введите меньше, чем {max_num}')
+                print(f'Введите меньше {max_num+1}')
                 continue
             return num
         except ValueError:
