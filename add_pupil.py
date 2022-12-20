@@ -1,7 +1,7 @@
 #Добавление ученика в список учеников
 from functions import  add_list_to_csv, string_to_list, read_from_csv
 filename = 'pupil.csv'
-# import uuid
+import uuid
 import os.path
 
 def input_firstname()->str:
@@ -23,26 +23,26 @@ def input_lastname()->str:
         input_lastname()
     else: return last.title()
 
-def generate_new_pupil_id()->int:
-    """Генерируется идентификатор (первичный ключ) для сущности Ученики
+# def generate_new_pupil_id()->int:
+#     """Генерируется идентификатор (первичный ключ) для сущности Ученики
 
-    Returns:
-        str: _возвращается идентификатор ученика_
-    """
-    new_id = 10001
-    filename = 'counter_pupil.txt'
-    if os.path.exists(filename): # если файл существует, открываем на чтение
-        f = open(filename, 'r')
-        line = f.readline() # читаем строку
-        if line != '': # если не пустая строка
-            new_id = int(line) + 1 # итерируем
-        f.close    
+#     Returns:
+#         str: _возвращается идентификатор ученика_
+#     """
+#     new_id = 10001
+#     filename = 'counter_pupil.txt'
+#     if os.path.exists(filename): # если файл существует, открываем на чтение
+#         f = open(filename, 'r')
+#         line = f.readline() # читаем строку
+#         if line != '': # если не пустая строка
+#             new_id = int(line) + 1 # итерируем
+#         f.close    
     
-    f = open(filename, 'w') # открываем файл на запись
-    f.write(str(new_id)) #запись идентификатора
-    f.close    
+#     f = open(filename, 'w') # открываем файл на запись
+#     f.write(str(new_id)) #запись идентификатора
+#     f.close    
         
-    return new_id
+#     return new_id
   
 
 def add_pupil()->str:
@@ -55,7 +55,8 @@ def add_pupil()->str:
 
     firstname = input_firstname() 
     lastname = input_lastname()
-    id_pupil = generate_new_pupil_id()
+    id_pupil = uuid.uuid4()
+    # id_pupil = generate_new_pupil_id()
     id_pupil= str(id_pupil)
     pupil = id_pupil + " " + firstname + " " + lastname 
     print( "Ученик:\n " + pupil + "\n сохранен!") 
@@ -101,8 +102,9 @@ def combine_pupil_and_subject(pupil_id, subject_ids):
 subject_list = read_from_csv('./Command_work_II/subjects.csv', 'UTF-8', '|') # чтение файла subjects.csv
 subject_ids = get_subject_ids(subject_list)
 
+    
 if __name__ == '__main__':
     pupil_id = add_pupil()
-    combined_ids = combine_pupil_and_subject(pupil_id, subject_ids)
-    add_list_to_csv("./Command_work_II/rating.csv", "UTF-8",combined_ids ) #запись в файл 
-    # print(combined_ids)
+    
+combined_ids = combine_pupil_and_subject(pupil_id, subject_ids)
+add_list_to_csv("./Command_work_II/rating.csv", "UTF-8",combined_ids ) #запись в файл 
