@@ -1,8 +1,7 @@
 #Добавление ученика в список учеников
 from functions import  add_list_to_csv, string_to_list, read_from_csv
-filename = 'pupil.csv'
 import uuid
-import os.path
+# import os.path
 
 def input_firstname()->str:
     """_Ввод фамилии, если пользователь ввел фамилию
@@ -60,8 +59,10 @@ def add_pupil()->str:
     id_pupil= str(id_pupil)
     pupil = id_pupil + " " + firstname + " " + lastname 
     print( "Ученик:\n " + pupil + "\n сохранен!") 
-    add_list_to_csv(filename, 'UTF-8', string_to_list(pupil)) #запись в файл 
-    return id_pupil
+    add_list_to_csv('./Command_work_II/pupil.csv', 'UTF-8', string_to_list(pupil)) #запись в файл
+    combined_ids = combine_pupil_and_subject(id_pupil, subject_ids)
+    add_list_to_csv("./Command_work_II/rating.csv", "UTF-8",combined_ids ) #запись в файл 
+    # return id_pupil
 
 
 def get_subject_ids(subjects)->list:
@@ -104,7 +105,5 @@ subject_ids = get_subject_ids(subject_list)
 
     
 if __name__ == '__main__':
-    pupil_id = add_pupil()
-    
-combined_ids = combine_pupil_and_subject(pupil_id, subject_ids)
-add_list_to_csv("./Command_work_II/rating.csv", "UTF-8",combined_ids ) #запись в файл 
+    add_pupil()
+ 
