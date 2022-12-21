@@ -8,7 +8,9 @@ import csv
 
 
 def remove_pupil():
-    id_pupil2 = id_pupil  
+    id_pupil  = ''
+    id_pupil2 =''
+     
     
 
     path_file = 'pupil.csv'
@@ -31,7 +33,7 @@ def remove_pupil():
         for row in pupil_list: 
                        
             if row[1].lower() == name[0].lower() and row[2].lower() == name[1].lower():
-               
+                id_pupil2 = id_pupil 
                 id_pupil = row[0].lower()
                 
                 pupil_list.remove(row)
@@ -39,13 +41,13 @@ def remove_pupil():
             if row[0].lower() == id_pupil2:
                 rating_list.remove(row)
             
-            with open(path_file, 'w', encoding='UTF-8') as pupil_list:
-                file_writer = csv.writer(pupil_list, delimiter = "|" , lineterminator="\n")
+            with open(path_file, 'w', encoding='UTF-8') as p_list:
+                file_writer = csv.writer(p_list, delimiter = "|" , lineterminator="\n")
                 for row in pupil_list:       
                     file_writer.writerow(row) 
 
-            with open(path_file_rating, 'w', encoding='UTF-8') as rating_list:
-                file_writer = csv.writer(rating_list, delimiter = "|" , lineterminator="\n")
+            with open(path_file_rating, 'w', encoding='UTF-8') as r_list:
+                file_writer = csv.writer(r_list, delimiter = "|" , lineterminator="\n")
                 for row in rating_list:       
                     file_writer.writerow(row) 
     
