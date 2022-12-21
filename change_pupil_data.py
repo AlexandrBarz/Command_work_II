@@ -24,7 +24,6 @@ def edit_pupil():
         find[0][2] = input('Введите имя ученика:\n>')
         print(find)
         data.append(find[0])
-        print(data)
         write_list_to_csv(path_pupil, coding, data)
         print('Редактирование прошло успешно')
 
