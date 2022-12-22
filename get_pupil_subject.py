@@ -4,6 +4,9 @@ from get_pupil_list import get_pupil_list
 
 
 def get_pupil_subject():
+    """
+    Функция выводит в консоль оценки выбранного ученика по заданному предмету  
+    """ 
     coding = 'utf-8'
     delim = '|'
     rating_string =''
@@ -26,7 +29,8 @@ def get_pupil_subject():
     if len(id_pupil) < 1:
         print(f'\nУчащегося {name_str} не найдено. Проверьте Фамилию и Имя ученика.')        
         string = get_pupil_list()
-        sys.exit(f'Список класса:\n {string}')            
+        print(f'Список класса:\n {string}')
+        return None            
     
 
     subj = input('введите предмет: > ')
@@ -38,9 +42,9 @@ def get_pupil_subject():
         print(f'учебного предмета {subj} не найдено.')        
         string =''
         for row in subject_list:
-            string += row[1]+'\n'
-        sys.exit(f'Список предметов:\n {string}')
-    
+            string += row[1]+'\n'        
+        print(f'Список предметов:\n {string}')
+        return None      
     
     rating_list = read_from_csv(path_file_rating, coding, delim)     
     for row in rating_list:

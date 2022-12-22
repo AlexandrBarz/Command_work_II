@@ -1,4 +1,3 @@
-import sys
 from functions import read_from_csv
 from get_pupil_list import get_pupil_list
 
@@ -33,7 +32,8 @@ def get_pupil_summary():
     if len(id_pupil) < 1:
         print(f'\nОбучающегося {name_str} не найдено. Проверьте Фамилию и Имя обучающегося.')        
         string = get_pupil_list()
-        sys.exit(f'Список класса:\n {string}')            
+        print(f'Список класса:\n {string}')
+        return None
        
      
     find = []   
