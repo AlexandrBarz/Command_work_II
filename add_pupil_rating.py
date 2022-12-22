@@ -42,8 +42,9 @@ def add_rating():
     if len(id_pupil) < 1:
         print(f'\nУченик {pupil.title()} не найден в списке. Проверьте корректность ввода фамилии.')
         string = get_pupil_list()
-        sys.exit(f'\n {string}')   
-            
+        print(f'\n {string}')
+        return None 
+                    
     subject = input('Введите предмет для выставления оценки --> ')
     subjects_list = read_from_csv(path_file_subject, coding, delim)
     for row in subjects_list:
@@ -52,7 +53,8 @@ def add_rating():
     if len(id_subject) < 1:
         print(f'\nПредмет {subject} не найден. Проверьте название предмета.')
         string = get_subject_list()
-        sys.exit(f'\n {string}')
+        print(f'\n {string}')
+        return None        
                        
     rating = str(give_int_num('Введите оценку, которую хотите поставить --> ', 1, 5))
     raiting_list = read_from_csv(path_file_rating, coding, delim)
