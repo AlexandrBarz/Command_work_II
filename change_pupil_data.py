@@ -24,7 +24,6 @@ def edit_pupil():
         find[0][2] = input('Введите имя ученика:\n>')
         print(find)
         data.append(find[0])
-        print(data)
         write_list_to_csv(path_pupil, coding, data)
         print('Редактирование прошло успешно')
 
@@ -79,7 +78,7 @@ def edit_asses():
         data_reit.append(find[0])
         write_list_to_csv(path_reit, coding, data_reit)
         print('Корректировки успешно внесены')
-        exit()
+        return
     else:
         print('У выбранного ученика нет таких предметов\n'
               'Попробуйте ввести поисковый запрос еще раз')
@@ -92,7 +91,7 @@ def change_pupil():
     try:
         resp = int(resp)
     except:
-        print("Ошибка.Введите цифры")
+        print("Ошибка.Введите цифры.")
         return
     if resp == 1:
         edit_pupil()
