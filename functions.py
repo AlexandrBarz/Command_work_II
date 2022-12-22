@@ -17,7 +17,7 @@ def give_int_num(input_string: str,
         try:
             num = int(input(input_string))
             if min_num and num < min_num:
-                print(f'Введите больше {min_num}')
+                print(f'Введите больше {min_num-1}')
                 continue
             if max_num and num > max_num:
                 print(f'Введите меньше {max_num+1}')
