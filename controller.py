@@ -11,27 +11,21 @@ def start():
 
         if menu_item == 1:
             add_pupil.add_pupil()
-            а = menu_item
-
+            
         elif menu_item == 2:
             add_pupil_rating.add_rating()
-            а = menu_item
-
+            
         elif menu_item == 3:
             get_pupil_summary.get_pupil_summary()  
-            а = menu_item
-            
+                        
         elif menu_item == 4:
             get_pupil_subject.get_pupil_subject()
-            а = menu_item
-            
+                
         elif menu_item == 5:
-            remove_pupil.remove_pupil() 
-            а = menu_item
-        
+            change_pupil_data.change_pupil()            
+
         elif menu_item == 6:
-            change_pupil_data.change_pupil()
-            а = menu_item
+            remove_pupil.remove_pupil()             
 
         elif menu_item == 7:
             string = get_pupil_list.get_pupil_list()
