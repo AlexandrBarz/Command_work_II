@@ -91,7 +91,7 @@ def change_pupil():
     try:
         resp = int(resp)
     except:
-        print("Ошибка.Введите цифры")
+        print("Ошибка.Введите цифры.")
         return
     if resp == 1:
         edit_pupil()
