@@ -100,7 +100,7 @@ def combine_pupil_and_subject(pupil_id, subject_ids):
 
 
 
-subject_list = read_from_csv('./Command_work_II/subjects.csv', 'UTF-8', '|') # чтение файла subjects.csv
+subject_list = read_from_csv('subjects.csv', 'UTF-8', '|') # чтение файла subjects.csv
 subject_ids = get_subject_ids(subject_list)
 
     
