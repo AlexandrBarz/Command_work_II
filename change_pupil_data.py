@@ -78,7 +78,7 @@ def edit_asses():
         data_reit.append(find[0])
         write_list_to_csv(path_reit, coding, data_reit)
         print('Корректировки успешно внесены')
-        exit()
+        return
     else:
         print('У выбранного ученика нет таких предметов\n'
               'Попробуйте ввести поисковый запрос еще раз')
